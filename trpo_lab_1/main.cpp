@@ -1,38 +1,21 @@
 #include <QCoreApplication>
 #include <iostream>
 #include "Stack.h"
+#include "PersonKeeper.h"
 
 int main()
 {
 
     try
     {
-        Stack<int> arr;
-        std::cout<<"Razmer: "<<arr.getSize()<< std::endl;
-        //std::cout<<"Top: "<<arr.topFunc()<< std::endl; // Вызов top в пустом стеке для проверки
-        //arr.pop(); // Вызов pop в пустом стеке для проверки
-        arr.push(3);
-        std::cout<<"Size: "<<arr.getSize()<< std::endl;
-        std::cout<<"Top: "<<arr.topFunc()<< std::endl;
-        std::cout<<"-----------------------------------"<< std::endl;
-        arr.push(5);
-        std::cout<<"Size: "<<arr.getSize()<< std::endl;
-        std::cout<<"Top: "<<arr.topFunc()<< std::endl;
-        std::cout<<"-----------------------------------"<< std::endl;
-        arr.push(9);
-        std::cout<<"Size: "<<arr.getSize()<< std::endl;
-        std::cout<<"Top: "<<arr.topFunc()<< std::endl;
-        std::cout<<"-----------------------------------"<< std::endl;
-        arr.push(2);
-        std::cout<<"Size: "<<arr.getSize()<< std::endl;
-        std::cout<<"Top: "<<arr.topFunc()<< std::endl;
-        std::cout<<"-----------------------------------"<< std::endl;
-        arr.pop();
-        std::cout<<"Size: "<<arr.getSize()<< std::endl;
-        std::cout<<"Top: "<<arr.topFunc()<< std::endl;
-        std::cout<<"-----------------------------------"<< std::endl;
+        std::fstream File; // Открываем файл
+        File.open("input.txt", std::ios_base::in); // Открываем его на чтение
+        Stack<Person> Persons = PersonKeeper::instance().readPersons(File); // Считываем
+        std::fstream File1; // Открываем файл1
+        File1.open("output.txt", std::ios_base::out); // Открываем его на запись
+        PersonKeeper::instance().writePersons(Persons, File1); // Записываем
     }
-    catch (const exep_stack::EStackEmpty & e) //исключение - пустой стек
+    catch (const exep_stack::EStackEmpty & e) // Исключение - пустой стек
     {
         std::cout<< e.what();
     }

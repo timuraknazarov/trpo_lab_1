@@ -13,7 +13,6 @@ class Node // Класс узлов Стека
   {
       value=value_; next=next_;
   }
-
 };
 
 #endif // NODE_H

@@ -10,6 +10,8 @@ private:
     Node<T>* top; // Первый элемент Стека - "Голова"
 
   public:
+
+
     int size; // Кол-во элементов Стека
 
     Stack(Node<T>* top_=nullptr,int size_=0) // Конструктор

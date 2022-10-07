@@ -3,7 +3,6 @@
 
 namespace exep_stack
 {
-
     class EStackException // Класс для исключений стека
     {
        private:
@@ -28,7 +27,6 @@ namespace exep_stack
         }
 
         const char* what() const { return message; } // Функция возвращает сообщение об исключении
-
     };
 
     class EStackEmpty : public EStackException // Наследование от Класса исключений, Класс исключений, что стек пустой
