@@ -10,8 +10,6 @@ private:
     Node<T>* top; // Первый элемент Стека - "Голова"
 
   public:
-
-
     int size; // Кол-во элементов Стека
 
     Stack(Node<T>* top_=nullptr,int size_=0) // Конструктор
@@ -131,7 +129,6 @@ Stack<T>::Stack(const Stack& copy) // Конструктор копирован�
             thisElem->next = new Node<T>;
             thisElem = thisElem->next;
             thisElem->value = copyElem->value;
-
             copyElem = copyElem->next;
             size++;
         }
@@ -144,9 +141,7 @@ Stack<T>& Stack<T>::operator = (const Stack& other) // Оператор прис
 {
     if (this == &other) // Если Стеки совпадают, то возвращаем наш Стек
         return *this;
-
     delete Stack(); // Удаляем наш Стек
-
     this = new Stack<T>(other); // Через конструктор копирования, копируем Стек
 
     return *this;
