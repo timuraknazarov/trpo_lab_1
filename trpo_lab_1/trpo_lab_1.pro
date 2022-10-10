@@ -25,5 +25,6 @@ HEADERS += \
     person.h
 
 DISTFILES += \
-    input.txt \
+    correct.txt \
+    empty.txt \
     output.txt

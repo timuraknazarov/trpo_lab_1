@@ -26,7 +26,6 @@ private:
     }
 
     Stack(const Stack<T>& copy); // Конструктор копирования
-
     bool empty() const; // Проверка пустой ли Стек?
     int getSize() const; // Получение размерности Стека
     void push(T value_); // Помещение объекта в Стек
@@ -141,7 +140,9 @@ Stack<T>& Stack<T>::operator = (const Stack& other) // Оператор прис
 {
     if (this == &other) // Если Стеки совпадают, то возвращаем наш Стек
         return *this;
+
     delete Stack(); // Удаляем наш Стек
+
     this = new Stack<T>(other); // Через конструктор копирования, копируем Стек
 
     return *this;
